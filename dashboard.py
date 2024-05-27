@@ -6,6 +6,9 @@ import plotly.express as px
 import os
 import dash_auth
 from collections import Counter
+from my_app import create_app
+
+server = create_app()
 
 USER_PASS_MAP = {
     'Admin': 'Admin',
