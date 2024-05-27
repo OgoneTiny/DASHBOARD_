@@ -6,7 +6,15 @@ import plotly.express as px
 import os
 import dash_auth
 from collections import Counter
-from my_app import create_app
+# dashboard.py
+from flask import Flask
+
+def create_app():
+    app = Flask(__name__)
+    @app.route('/')
+    def hello():
+        return "Hello, World!"
+    return app
 
 server = create_app()
 
@@ -18,6 +26,8 @@ USER_PASS_MAP = {
 # Initialize the Dash app
 app = dash.Dash(__name__, external_stylesheets=['assets/style.css'])
 server = app.server
+if __name__ == "__main__":
+    server.run(debug=True)
 app.config.suppress_callback_exceptions = True
 
 auth = dash_auth.BasicAuth(app, USER_PASS_MAP)
