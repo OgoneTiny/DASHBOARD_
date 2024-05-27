@@ -14,6 +14,7 @@ USER_PASS_MAP = {
 
 # Initialize the Dash app
 app = dash.Dash(__name__, external_stylesheets=['assets/style.css'])
+server = app.server
 app.config.suppress_callback_exceptions = True
 
 auth = dash_auth.BasicAuth(app, USER_PASS_MAP)
